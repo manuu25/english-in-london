@@ -1,0 +1,288 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Join Our London English Learning Community"
+  description="Connect with international students, find your buddy, and start your London English learning journey with our supportive community."
+>
+  <Header />
+
+  <section
+    class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 font-sans"
+  >
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+        alt="London community gathering"
+        class="w-full h-full object-cover opacity-30"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-cream/60 to-cream/90">
+      </div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 my-20">
+      <div class="text-center mb-12">
+        <h1
+          class="font-sans font-bold text-5xl md:text-7xl text-charcoal leading-tight mb-6"
+        >
+          Join Our Community
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-charcoal/80 max-w-3xl mx-auto leading-relaxed"
+        >
+          Speak to our team today about beginning your life in London's warmest
+          English learning community.
+        </p>
+      </div>
+
+      <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="relative">
+            <svg
+              class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-charcoal/60"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              ></path>
+            </svg>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              class="w-full pl-10 pr-4 py-3 rounded-xl border border-beige bg-cream/50 focus:outline-none focus:ring-2 focus:ring-earth focus:bg-white transition-colors duration-200"
+            />
+          </div>
+
+          <div class="relative">
+            <svg
+              class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-charcoal/60"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              ></path>
+            </svg>
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              class="w-full pl-10 pr-4 py-3 rounded-xl border border-beige bg-cream/50 focus:outline-none focus:ring-2 focus:ring-earth focus:bg-white transition-colors duration-200"
+            />
+          </div>
+
+          <div class="relative">
+            <svg
+              class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-charcoal/60"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path>
+            </svg>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              class="w-full pl-10 pr-16 py-3 rounded-xl border border-beige bg-cream/50 focus:outline-none focus:ring-2 focus:ring-earth focus:bg-white transition-colors duration-200"
+            />
+          </div>
+
+          <div class="relative">
+            <div class="flex">
+              <select
+                class="pl-3 pr-2 py-3 rounded-l-xl border-r border-beige bg-cream/50 focus:outline-none text-charcoal"
+              >
+                <option>🇬🇧 +44</option>
+                <option>🇺🇸 +1</option>
+                <option>🇧🇷 +55</option>
+                <option>🇪🇸 +34</option>
+                <option>🇮🇹 +39</option>
+                <option>🇯🇵 +81</option>
+              </select>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                class="flex-1 px-4 py-3 rounded-r-xl border border-l-0 border-beige bg-cream/50 focus:outline-none focus:ring-2 focus:ring-earth focus:bg-white transition-colors duration-200"
+              />
+            </div>
+          </div>
+
+          <div class="relative md:col-span-2">
+            <svg
+              class="w-5 h-5 absolute left-3 top-4 text-charcoal/60"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <select
+              name="hearAbout"
+              class="w-full pl-10 pr-4 py-3 rounded-xl border border-beige bg-cream/50 focus:outline-none focus:ring-2 focus:ring-earth focus:bg-white transition-colors duration-200"
+            >
+              <option>How did you hear about us?</option>
+              <option>Google Search</option>
+              <option>Social Media</option>
+              <option>Friend Recommendation</option>
+              <option>University/School</option>
+              <option>Education Agent</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="md:col-span-2">
+            <textarea
+              name="message"
+              placeholder="How else can we help you? Tell us about your goals, concerns, or questions..."
+              rows="4"
+              class="w-full px-4 py-3 rounded-xl border border-beige bg-cream/50 focus:outline-none focus:ring-2 focus:ring-earth focus:bg-white transition-colors duration-200"
+            ></textarea>
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="flex items-start space-x-3 text-sm text-charcoal/70">
+              <div class="relative">
+                <input type="checkbox" class="sr-only" id="consent" />
+                <div
+                  class="toggle-bg w-11 h-6 bg-sand rounded-full shadow-inner transition-colors duration-200"
+                >
+                </div>
+                <div
+                  class="toggle-dot absolute w-4 h-4 bg-white rounded-full shadow top-1 left-1 transition-transform duration-200"
+                >
+                </div>
+              </div>
+              <span class="leading-relaxed">
+                By entering your phone number and selecting to opt in, you
+                consent to join a recurring text messaging program that will
+                provide alerts, updates, and other important information. By
+                participating, you agree to the terms & privacy policy for auto
+                dialed messages to the phone number you provide. Msg&data rates
+                may apply. Msg frequency varies. Reply HELP for help or STOP to
+                opt-out at any time. SMS information is not rented, sold, or
+                shared.†
+              </span>
+            </label>
+          </div>
+
+          <div class="md:col-span-2 text-center mt-6">
+            <button
+              type="submit"
+              class="bg-red text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-charcoal transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Join Our Community
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <a
+          href="/events"
+          class="bg-white/80 backdrop-blur-sm rounded-xl p-6 hover:bg-white/90 transition-all duration-300 shadow-lg"
+        >
+          <div class="text-earth text-2xl mb-3">📅</div>
+          <h3 class="font-sans font-bold text-lg text-charcoal mb-2">
+            Browse Events
+          </h3>
+          <p class="text-charcoal/60 text-sm">See what's happening this week</p>
+        </a>
+
+        <a
+          href="/community"
+          class="bg-white/80 backdrop-blur-sm rounded-xl p-6 hover:bg-white/90 transition-all duration-300 shadow-lg"
+        >
+          <div class="text-earth text-2xl mb-3">👥</div>
+          <h3 class="font-sans font-bold text-lg text-charcoal mb-2">
+            Find Your Buddy
+          </h3>
+          <p class="text-charcoal/60 text-sm">
+            Get matched with a learning partner
+          </p>
+        </a>
+
+        <a
+          href="/stories"
+          class="bg-white/80 backdrop-blur-sm rounded-xl p-6 hover:bg-white/90 transition-all duration-300 shadow-lg"
+        >
+          <div class="text-earth text-2xl mb-3">💬</div>
+          <h3 class="font-sans font-bold text-lg text-charcoal mb-2">
+            Read Stories
+          </h3>
+          <p class="text-charcoal/60 text-sm">
+            Get inspired by success journeys
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Custom toggle styling */
+  .toggle-bg {
+    cursor: pointer;
+  }
+
+  input:checked + .toggle-bg {
+    background-color: #b8a690;
+  }
+
+  input:checked + .toggle-bg .toggle-dot {
+    transform: translateX(1.25rem);
+  }
+
+  .toggle-dot {
+    transition: transform 0.2s;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const checkbox = document.getElementById("consent");
+    const toggleBg = document.querySelector(".toggle-bg");
+
+    if (toggleBg && checkbox) {
+      toggleBg.addEventListener("click", function () {
+        checkbox.checked = !checkbox.checked;
+
+        if (checkbox.checked) {
+          toggleBg.style.backgroundColor = "#B8A690";
+          toggleBg.querySelector(".toggle-dot").style.transform =
+            "translateX(1.25rem)";
+        } else {
+          toggleBg.style.backgroundColor = "#DDD0C0";
+          toggleBg.querySelector(".toggle-dot").style.transform =
+            "translateX(0)";
+        }
+      });
+    }
+  });
+</script>

@@ -1,0 +1,185 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+// IMPORTANTE: Un solo nivel de profundidad para importar los datos (..)
+import { schools } from "../data/schools";
+---
+
+<Layout
+  title="Find Your Perfect English Course in London"
+  description="Discover the best English language schools and courses in London with our comprehensive search and community recommendations."
+>
+  <Header />
+
+  <section class="py-20 bg-beige font-sans">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 mt-10">
+        <h2 class="font-script text-earth text-xl mb-3">Community favorites</h2>
+        <h3
+          class="font-sans font-bold text-4xl md:text-5xl text-charcoal tracking-tight"
+        >
+          Top Rated Schools in London
+        </h3>
+      </div>
+
+      <div class="flex flex-col gap-8">
+        {
+          schools.map((school) => (
+            <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-beige/40 hover:shadow-xl hover:border-earth/30 transition-all duration-300 flex flex-col md:flex-row group h-full">
+              {/* 1. Image (Left / Top) */}
+              <div class="w-full md:w-80 h-64 md:h-auto relative shrink-0 overflow-hidden">
+                <img
+                  src={school.image}
+                  alt={school.name}
+                  class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent md:hidden flex items-end p-6">
+                  <h4 class="text-white font-sans font-bold text-xl">
+                    {school.name}
+                  </h4>
+                </div>
+              </div>
+
+              {/* 2. Content (Middle) */}
+              <div class="flex-1 p-6 md:p-8 flex flex-col justify-between">
+                <div>
+                  <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                    <h4 class="font-sans font-bold text-2xl text-charcoal hidden md:block group-hover:text-earth transition-colors">
+                      {school.name}
+                    </h4>
+
+                    {/* --- RATING BADGE --- */}
+                    <div class="inline-flex items-center gap-2 bg-cream/40 px-3 py-1.5 rounded-full border border-beige/50 backdrop-blur-sm whitespace-nowrap self-start">
+                      <span class="text-earth text-lg leading-none pt-0.5">
+                        {"★".repeat(Math.floor(school.rating))}
+                      </span>
+                      <div class="flex items-baseline gap-1.5 border-l border-charcoal/10 pl-2 ml-0.5">
+                        <span class="font-bold text-charcoal text-sm leading-none">
+                          {school.rating}
+                        </span>
+                        <span class="text-[11px] text-charcoal/60 font-medium leading-none">
+                          ({school.reviews} reviews)
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Location */}
+                  <div class="flex items-center text-charcoal/60 mb-4 text-sm font-medium">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 mr-1.5 text-earth"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    {school.location}
+                    <a
+                      href={`/school/${school.id}`}
+                      class="text-earth hover:underline ml-2 text-xs font-bold uppercase tracking-wider"
+                    >
+                      See map
+                    </a>
+                  </div>
+
+                  {/* Description */}
+                  <p class="text-charcoal/75 text-base leading-relaxed mb-6 line-clamp-2 md:line-clamp-3 min-h-[4.5rem]">
+                    {school.description}
+                  </p>
+                </div>
+
+                {/* Tags */}
+                <div class="flex flex-wrap gap-2 mt-auto">
+                  <span class="px-3 py-1 bg-gray-50 text-charcoal/60 text-xs font-semibold rounded-md border border-gray-100">
+                    General English
+                  </span>
+                  <span class="px-3 py-1 bg-gray-50 text-charcoal/60 text-xs font-semibold rounded-md border border-gray-100">
+                    Intensive
+                  </span>
+                </div>
+              </div>
+
+              {/* 3. Price & Action (Right / Bottom) */}
+              <div class="md:w-72 bg-cream/20 border-t md:border-t-0 md:border-l border-beige/50 p-6 md:p-8 flex flex-col justify-center gap-4 shrink-0">
+                {/* Course Fees */}
+                <div class="flex items-center justify-between md:block md:text-left border-b border-beige/40 pb-2 md:border-none md:pb-0">
+                  <p class="text-charcoal/50 text-[10px] font-bold uppercase tracking-wider mb-0 md:mb-1">
+                    Course Only
+                  </p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-charcoal">
+                      £{school.priceCourse}
+                    </span>
+                    <span class="text-charcoal/60 text-xs font-medium">
+                      / week
+                    </span>
+                  </div>
+                </div>
+
+                {/* Accom Fees */}
+                <div class="flex items-center justify-between md:block md:text-left">
+                  <p class="text-charcoal/50 text-[10px] font-bold uppercase tracking-wider mb-0 md:mb-1">
+                    Course + Accom
+                  </p>
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-2xl font-bold text-charcoal">
+                      £{school.priceAccom}
+                    </span>
+                    <span class="text-charcoal/60 text-xs font-medium">
+                      / week
+                    </span>
+                  </div>
+                </div>
+
+                {/* BUTTON - LINK A PAGINA INTERNA */}
+                <a
+                  href={`/school/${school.id}`}
+                  class="mt-2 bg-red w-full group/btn relative inline-flex items-center justify-center px-6 py-3.5 text-base font-bold text-white transition-all duration-200 bg-earth rounded-xl font-sans hover:bg-charcoal hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-earth"
+                >
+                  View Details
+                  <svg
+                    class="w-4 h-4 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="text-center mt-16">
+        <button
+          class="inline-flex items-center justify-center px-8 py-4 font-sans font-bold text-charcoal bg-white border-2 border-beige rounded-full hover:bg-earth hover:text-royal hover:border-earth transition-all duration-300 shadow-sm hover:shadow-lg"
+        >
+          Load More Schools
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

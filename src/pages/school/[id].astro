@@ -1,0 +1,506 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { schools } from "../../data/schools";
+
+export function getStaticPaths() {
+  return schools.map((school) => ({
+    params: { id: school.id },
+    props: { school },
+  }));
+}
+
+const { school } = Astro.props;
+
+// --- 1. LÓGICA DE GALERÍA ESPECÍFICA ---
+let galleryImages = school.gallery || [];
+
+// Si la escuela es Frances King, forzamos estas imágenes específicas
+if (school.id === "frances-king") {
+  galleryImages = [
+    school.image, // La principal
+    "/schools-images/francesking-img2.jpg",
+    "/schools-images/francesking-img3.png",
+    "/schools-images/francesking-img4.jpg",
+    "/schools-images/francesking-img5.jpg",
+  ];
+} else if (galleryImages.length === 0) {
+  // Imágenes de relleno para las demás escuelas si no tienen galería en la DB
+  galleryImages = [
+    school.image,
+    "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/5940721/pexels-photo-5940721.jpeg?auto=compress&cs=tinysrgb&w=800",
+  ];
+}
+
+// --- 2. DATOS DE RESEÑAS ---
+const reviews = [
+  {
+    name: "Sarah M.",
+    country: "Italy",
+    date: "2 weeks ago",
+    rating: 5,
+    text: `My experience at ${school.name} was incredible. The teachers are so supportive and I made friends from all over the world.`,
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+  },
+  {
+    name: "Hiroshi T.",
+    country: "Japan",
+    date: "1 month ago",
+    rating: 5,
+    text: "The environment here is very welcoming. The facilities are modern and the location is perfect for exploring London.",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+  },
+  {
+    name: "Gabriela R.",
+    country: "Brazil",
+    date: "2 months ago",
+    rating: 4,
+    text: "Great school! I improved my IELTS score significantly. I recommend staying in the student residence.",
+    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+  },
+];
+---
+
+<Layout
+  title={`${school.name} - English Course in London`}
+  description={school.description}
+>
+  <Header />
+
+  <div class="relative h-[50vh] min-h-[400px] w-full overflow-hidden font-sans">
+    <div class="absolute inset-0 bg-charcoal/40 z-10"></div>
+    <img
+      src={school.image}
+      alt={school.name}
+      class="w-full h-full object-cover"
+    />
+    <div
+      class="absolute inset-0 z-20 flex flex-col justify-end pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+    >
+      <div
+        class="bg-white/95 backdrop-blur-md p-6 md:p-8 rounded-3xl max-w-4xl border border-white/50 shadow-2xl"
+      >
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4"
+        >
+          <div>
+            <h1
+              class="font-sans font-bold text-3xl md:text-5xl text-charcoal mb-2"
+            >
+              {school.name}
+            </h1>
+            <div
+              class="flex items-center text-charcoal/70 text-sm md:text-base"
+            >
+              <svg
+                class="w-5 h-5 mr-2 text-earth"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                ></path><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+              >
+              {school.location}
+            </div>
+          </div>
+          <div class="flex flex-col items-end">
+            <div
+              class="flex items-center bg-cream px-4 py-2 rounded-xl mb-1 shadow-sm border border-beige"
+            >
+              <span class="text-earth text-xl mr-1">★</span>
+              <span class="font-bold text-charcoal text-xl"
+                >{school.rating}</span
+              >
+              <span class="text-charcoal/60 text-sm ml-2"
+                >({school.reviews} reviews)</span
+              >
+            </div>
+            {
+              school.accreditations && (
+                <div class="flex gap-2 text-xs text-charcoal/50 mt-1">
+                  {school.accreditations.map((acc) => (
+                    <span>• {acc}</span>
+                  ))}
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="py-16 bg-white font-sans">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2 space-y-12">
+          <div id="about">
+            <h2
+              class="font-sans font-bold text-3xl text-charcoal mb-6 border-b border-beige pb-4"
+            >
+              About School
+            </h2>
+            <div class="prose prose-lg text-charcoal/70 max-w-none">
+              <p class="leading-relaxed whitespace-pre-line">
+                {
+                  school.longDescription
+                    ? school.longDescription
+                    : school.description
+                }
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+              <div
+                class="bg-cream rounded-xl p-4 text-center border border-beige"
+              >
+                <span class="block text-2xl font-bold text-earth mb-1"
+                  >{school.classrooms || "10+"}</span
+                >
+                <span class="text-xs text-charcoal/60 uppercase tracking-wide"
+                  >Classrooms</span
+                >
+              </div>
+              <div
+                class="bg-cream rounded-xl p-4 text-center border border-beige"
+              >
+                <span class="block text-2xl font-bold text-earth mb-1">12</span>
+                <span class="text-xs text-charcoal/60 uppercase tracking-wide"
+                  >Max Class Size</span
+                >
+              </div>
+              <div
+                class="bg-cream rounded-xl p-4 text-center border border-beige"
+              >
+                <span class="block text-2xl font-bold text-earth mb-1">16+</span
+                >
+                <span class="text-xs text-charcoal/60 uppercase tracking-wide"
+                  >Min Age</span
+                >
+              </div>
+              <div
+                class="bg-cream rounded-xl p-4 text-center border border-beige"
+              >
+                <span class="block text-2xl font-bold text-earth mb-1"
+                  >All Year</span
+                >
+                <span class="text-xs text-charcoal/60 uppercase tracking-wide"
+                  >Opening</span
+                >
+              </div>
+            </div>
+
+            <div class="mt-10 relative group">
+              <h3 class="font-sans font-bold text-xl text-charcoal mb-4">
+                Photo Gallery
+              </h3>
+
+              <button
+                id="slide-left"
+                class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-charcoal p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"></path></svg
+                >
+              </button>
+
+              <div
+                id="gallery-slider"
+                class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 scrollbar-hide"
+                style="scrollbar-width: none; -ms-overflow-style: none;"
+              >
+                {
+                  galleryImages.map((imgSrc, index) => (
+                    <div class="snap-center shrink-0 w-[80%] md:w-[45%] h-64 relative rounded-2xl overflow-hidden shadow-md">
+                      <img
+                        src={imgSrc}
+                        alt={`${school.name} gallery image ${index + 1}`}
+                        class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  ))
+                }
+              </div>
+
+              <button
+                id="slide-right"
+                class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-charcoal p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"></path></svg
+                >
+              </button>
+            </div>
+          </div>
+
+          <div id="facilities">
+            <h3 class="font-sans font-bold text-2xl text-charcoal mb-6">
+              School Facilities
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {
+                school.facilities &&
+                  school.facilities.map((feature) => (
+                    <div class="flex items-center p-3 bg-white border border-charcoal/10 rounded-lg hover:border-earth/50 transition-colors">
+                      <svg
+                        class="w-5 h-5 text-earth mr-3 flex-shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span class="text-sm text-charcoal/80 font-medium">
+                        {feature}
+                      </span>
+                    </div>
+                  ))
+              }
+            </div>
+          </div>
+
+          <div id="reviews" class="pt-8 border-t border-beige">
+            <div class="flex items-center justify-between mb-8">
+              <h3 class="font-sans font-bold text-2xl text-charcoal">
+                Student Reviews
+              </h3>
+              <button class="text-earth font-bold text-sm hover:underline"
+                >View all reviews</button
+              >
+            </div>
+            <div class="space-y-6">
+              {
+                reviews.map((review) => (
+                  <div class="bg-white p-6 rounded-2xl shadow-sm border border-beige/60 hover:border-earth/30 transition-all">
+                    <div class="flex items-start justify-between mb-4">
+                      <div class="flex items-center gap-4">
+                        <img
+                          src={review.avatar}
+                          alt={review.name}
+                          class="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
+                        />
+                        <div>
+                          <h4 class="font-bold text-charcoal">{review.name}</h4>
+                          <div class="flex items-center text-xs text-charcoal/60 gap-2">
+                            <span>{review.country}</span>
+                            <span>• {review.date}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex text-earth text-sm">
+                        {"★".repeat(review.rating)}
+                      </div>
+                    </div>
+                    <p class="text-charcoal/75 leading-relaxed text-sm md:text-base">
+                      "{review.text}"
+                    </p>
+                  </div>
+                ))
+              }
+            </div>
+            <div
+              class="mt-10 bg-cream/30 p-8 rounded-3xl border border-beige text-center"
+            >
+              <h4 class="font-bold text-xl text-charcoal mb-2">
+                Have you studied here?
+              </h4>
+              <p class="text-charcoal/60 mb-6 text-sm">
+                Share your experience and help other students choose their path.
+              </p>
+              <button
+                class="bg-white border-2 border-beige text-charcoal px-8 py-3 rounded-full font-bold hover:border-earth hover:text-earth transition-all shadow-sm"
+                >Write a Review</button
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-1">
+          <div
+            class="sticky top-24 bg-white border border-beige rounded-2xl shadow-xl p-8"
+            id="quote-container"
+            data-pricing={JSON.stringify({
+              courses: school.courses,
+              accommodation: school.accommodationOptions,
+              fees: school.fees,
+            })}
+          >
+            <h3 class="font-sans font-bold text-2xl text-charcoal mb-6">
+              Quick Quote
+            </h3>
+            <form class="space-y-5" onsubmit="return false;">
+              <div>
+                <label class="block text-sm text-charcoal/70 mb-2"
+                  >Course Type</label
+                >
+                <select
+                  id="course-select"
+                  class="w-full bg-cream border border-beige rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-earth"
+                >
+                  {
+                    school.courses &&
+                      school.courses.map((c) => (
+                        <option value={c.price}>{c.name}</option>
+                      ))
+                  }
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm text-charcoal/70 mb-2"
+                  >Duration (Weeks)</label
+                >
+                <select
+                  id="duration-select"
+                  class="w-full bg-cream border border-beige rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-earth"
+                >
+                  {
+                    [1, 2, 3, 4, 6, 8, 12, 24].map((n) => (
+                      <option value={n}>{n} weeks</option>
+                    ))
+                  }
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm text-charcoal/70 mb-2"
+                  >Accommodation</label
+                >
+                <select
+                  id="accom-select"
+                  class="w-full bg-cream border border-beige rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-earth"
+                >
+                  <option value="0">No Accommodation</option>
+                  {
+                    school.accommodationOptions &&
+                      school.accommodationOptions.map((a) => (
+                        <option value={a.price}>{a.type}</option>
+                      ))
+                  }
+                </select>
+              </div>
+              <div class="pt-4 border-t border-beige mt-6">
+                <div class="flex justify-between items-end mb-1">
+                  <span class="text-charcoal/60 text-sm">Estimated Total</span>
+                  <span id="total-price" class="text-3xl font-bold text-earth"
+                    >£ --</span
+                  >
+                </div>
+                <div class="text-xs text-charcoal/50 text-right mb-1">
+                  <span id="fees-breakdown"
+                    >Includes Reg Fee: £{school.fees?.registration || 0}</span
+                  >
+                </div>
+                <p class="text-xs text-charcoal/40 text-right mb-6">
+                  *Excluding flights & insurance
+                </p>
+              </div>
+              <a
+                href={school.website}
+                target="_blank"
+                class="block w-full bg-red text-white text-center py-4 rounded-xl font-bold hover:bg-charcoal transition-all duration-300"
+                >Book Now</a
+              >
+              <a
+                href="/contact"
+                class="block w-full border border-royal bg-white text-charcoal text-center py-4 rounded-xl font-bold hover:bg-cream transition-all duration-300"
+                >Contact Advisor</a
+              >
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1. LÓGICA CALCULADORA
+    const container = document.getElementById("quote-container");
+    if (container) {
+      const pricingData = JSON.parse(container.dataset.pricing);
+      const regFee = Number(pricingData.fees?.registration) || 0;
+      const accomFee = Number(pricingData.fees?.accommodation) || 0;
+
+      const courseSelect = document.getElementById("course-select");
+      const durationSelect = document.getElementById("duration-select");
+      const accomSelect = document.getElementById("accom-select");
+      const totalDisplay = document.getElementById("total-price");
+      const feesDisplay = document.getElementById("fees-breakdown");
+
+      function calculateTotal() {
+        const coursePricePerWeek = parseFloat(courseSelect.value) || 0;
+        const weeks = parseInt(durationSelect.value) || 1;
+        const accomPricePerWeek = parseFloat(accomSelect.value) || 0;
+
+        let total = coursePricePerWeek * weeks;
+        total += regFee;
+
+        if (accomPricePerWeek > 0) {
+          total += accomPricePerWeek * weeks;
+          total += accomFee;
+          feesDisplay.innerText = `Incl. Reg £${regFee} + Accom Fee £${accomFee}`;
+        } else {
+          feesDisplay.innerText = `Incl. Reg Fee £${regFee}`;
+        }
+
+        totalDisplay.innerText = `£${total.toLocaleString("en-GB", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+      }
+
+      if (courseSelect) courseSelect.addEventListener("change", calculateTotal);
+      if (durationSelect)
+        durationSelect.addEventListener("change", calculateTotal);
+      if (accomSelect) accomSelect.addEventListener("change", calculateTotal);
+      calculateTotal();
+    }
+
+    // 2. LÓGICA CARRUSEL
+    const slider = document.getElementById("gallery-slider");
+    const leftBtn = document.getElementById("slide-left");
+    const rightBtn = document.getElementById("slide-right");
+
+    if (slider && leftBtn && rightBtn) {
+      leftBtn.addEventListener("click", () => {
+        slider.scrollBy({ left: -300, behavior: "smooth" });
+      });
+
+      rightBtn.addEventListener("click", () => {
+        slider.scrollBy({ left: 300, behavior: "smooth" });
+      });
+    }
+  });
+</script>

@@ -1,0 +1,183 @@
+---
+---
+
+<div id="loading-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white">
+  <!-- Union Jack Flag with Progressive Drawing -->
+  <div class="union-jack mb-8">
+    <svg width="200" height="120" viewBox="0 0 200 120" class="drop-shadow-lg">
+      <!-- Blue background - appears first -->
+      <rect width="200" height="120" fill="#012169" class="flag-element" style="animation-delay: 0s"/>
+      
+      <!-- White diagonals - appear second -->
+      <path d="M0,0 L200,120 M200,0 L0,120" stroke="white" stroke-width="20" class="flag-element diagonal-white" style="animation-delay: 0.3s"/>
+      
+      <!-- Red diagonals - appear third -->
+      <path d="M0,0 L200,120 M200,0 L0,120" stroke="#C8102E" stroke-width="12" class="flag-element diagonal-red" style="animation-delay: 0.6s"/>
+      
+      <!-- White cross - appears fourth -->
+      <path d="M100,0 L100,120 M0,60 L200,60" stroke="white" stroke-width="40" class="flag-element cross-white" style="animation-delay: 0.9s"/>
+      
+      <!-- Red cross - appears last -->
+      <path d="M100,0 L100,120 M0,60 L200,60" stroke="#C8102E" stroke-width="24" class="flag-element cross-red" style="animation-delay: 1.2s"/>
+    </svg>
+  </div>
+  
+  <!-- Loading Text -->
+  <h2 class="font-serif text-2xl text-royal mb-6 animate-pulse">
+    Welcome to London
+  </h2>
+  
+  <!-- Progress Bar Container -->
+  <div class="w-64 h-2 bg-gray-200 rounded-full overflow-hidden mb-4">
+    <div id="progress-bar" class="h-full bg-gradient-to-r from-royal to-red rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
+  </div>
+  
+  <!-- Percentage -->
+  <div id="progress-text" class="text-royal font-medium text-lg">0%</div>
+  
+  <!-- Subtitle -->
+  <p class="text-royal/70 text-center mt-4 max-w-md">
+    Connecting you with London's warmest English learning community...
+  </p>
+</div>
+
+<style>
+  #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: white;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    overflow: hidden;
+  }
+  
+  #loading-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* Flag animation styles */
+  .flag-element {
+    opacity: 0;
+    animation: drawElement 0.5s ease-out forwards;
+  }
+  
+  .diagonal-white {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawLine 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+  
+  .diagonal-red {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawLine 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+  }
+  
+  .cross-white {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: drawLine 0.8s ease-out forwards;
+    animation-delay: 0.9s;
+  }
+  
+  .cross-red {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: drawLine 0.8s ease-out forwards;
+    animation-delay: 1.2s;
+  }
+  
+  @keyframes drawElement {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes drawLine {
+    to {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+  
+  .union-jack {
+    animation: flagComplete 0.5s ease-in-out;
+    animation-delay: 1.8s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes flagComplete {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Prevent body scroll when loading */
+  body.loading {
+    overflow: hidden;
+    height: 100vh;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+    const body = document.body;
+    
+    // Prevent scrolling during loading
+    body.classList.add('loading');
+    
+    let progress = 0;
+    const duration = 3500; // 3.5 seconds total (flag animation + progress)
+    const interval = 50; // Update every 50ms
+    const increment = (100 / (duration / interval));
+    
+    // Start progress after flag starts drawing
+    setTimeout(() => {
+      const progressInterval = setInterval(() => {
+        progress += increment;
+        
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(progressInterval);
+          
+          // Wait a moment at 100% then fade out
+          setTimeout(() => {
+            loadingScreen.classList.add('fade-out');
+            body.classList.remove('loading');
+            
+            // Remove from DOM after fade
+            setTimeout(() => {
+              loadingScreen.remove();
+            }, 500);
+          }, 300);
+        }
+        
+        // Update progress bar and text
+        progressBar.style.width = progress + '%';
+        
+        // Add realistic loading steps
+        if (progress >= 20 && progress < 25) {
+          progressText.textContent = Math.round(progress) + '% - Loading community...';
+        } else if (progress >= 50 && progress < 55) {
+          progressText.textContent = Math.round(progress) + '% - Connecting stories...';
+        } else if (progress >= 80 && progress < 85) {
+          progressText.textContent = Math.round(progress) + '% - Almost ready...';
+        } else if (progress >= 100) {
+          progressText.textContent = '100% - Welcome!';
+        } else {
+          progressText.textContent = Math.round(progress) + '%';
+        }
+      }, interval);
+    }, 500); // Start progress 500ms after page load
+  });
+</script>

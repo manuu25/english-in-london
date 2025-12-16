@@ -1,0 +1,501 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="EnglishInLondon - Your London Learning Journey Starts Here">
+  <Header />
+
+  <section
+    class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-gradient-to-br from-lightBlue to-white"
+  >
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.pexels.com/photos/163037/london-street-phone-cabin-163037.jpeg"
+        alt="Students connecting in London"
+        class="w-full h-full object-cover opacity-20"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-lightBlue/60 to-white/90"
+      >
+      </div>
+    </div>
+
+    <div
+      class="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+    >
+      <h1
+        class="font-sans text-5xl md:text-7xl lg:text-8xl text-royal leading-tight mb-6"
+      >
+        Learn. Connect. <span class="font-sans font-semibold text-red"
+          >Belong.</span
+        >
+      </h1>
+      <p
+        class="text-xl md:text-2xl text-royal/80 mb-8 max-w-3xl mx-auto leading-relaxed"
+      >
+        Communities designed to connect you with yourself, your neighbors, and
+        the magic of learning English together in London.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/community"
+          class="bg-red text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-darkRed transition-all duration-300 shadow-lg"
+        >
+          Find An English School
+        </a>
+        <a
+          href="/stories"
+          class="border-2 border-red text-red px-8 py-4 rounded-full text-lg font-medium hover:bg-red hover:text-white transition-all duration-300"
+        >
+          Read Stories
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white border-b border-lightBlue/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p
+        class="text-center text-royal/40 text-xs font-sans font-bold uppercase tracking-[0.2em] mb-10"
+      >
+        Partnering with London's Finest Schools
+      </p>
+
+      <div
+        class="flex flex-wrap justify-center items-center gap-x-12 md:gap-x-16 gap-y-10"
+      >
+        <img
+          src="/francesking.png"
+          alt="Frances King School"
+          class="h-10 md:h-14 w-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+        />
+        <img
+          src="/burlingtonschool.svg"
+          alt="Burlington School"
+          class="h-12 md:h-16 w-auto opacity-60 hover:opacity-100 transition-all duration-300 brightness-0"
+        />
+
+        <div
+          class="opacity-50 hover:opacity-100 transition-all duration-300 grayscale cursor-default"
+        >
+          <img
+            src="/londonschool.webp"
+            alt="London School"
+            class="h-10 md:h-14 w-auto opacity-100 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          />
+        </div>
+
+        <div
+          class="opacity-50 hover:opacity-100 transition-all duration-300 grayscale cursor-default"
+        >
+          <img
+            src="/malvernhouse.svg"
+            alt="Malvern House"
+            class="h-12 md:h-10 w-auto opacity-60 hover:opacity-100 transition-all duration-300 brightness-0"
+          />
+        </div>
+
+        <div
+          class="opacity-50 hover:opacity-100 transition-all duration-300 grayscale cursor-default"
+        >
+          <img
+            src="/skola.avif"
+            alt="Skola"
+            class="h-10 md:h-14 w-auto opacity-100 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          />
+        </div>
+
+        <div
+          class="opacity-50 hover:opacity-100 transition-all duration-300 grayscale cursor-default"
+        >
+          <img
+            src="/speakuplondon.webp"
+            alt="Speak Up London"
+            class="h-10 md:h-14 w-auto opacity-100 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          />
+        </div>
+        <div
+          class="opacity-50 hover:opacity-100 transition-all duration-300 grayscale cursor-default"
+        >
+          <img
+            src="/stgiles-international.webp"
+            alt="St Giles International"
+            class="h-10 md:h-12 w-auto opacity-100 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          />
+        </div>
+        <div
+          class="opacity-50 hover:opacity-100 transition-all duration-300 grayscale cursor-default"
+        >
+          <img
+            src="/ukenglish.png"
+            alt="UK English"
+            class="h-10 md:h-12 w-auto opacity-100 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          />
+        </div>
+        <div
+          class="opacity-50 hover:opacity-100 transition-all duration-300 grayscale cursor-default"
+        >
+          <img
+            src="/uklc.png"
+            alt="UKLC"
+            class="h-10 md:h-14 w-auto opacity-100 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          />
+        </div>
+        <div
+          class="opacity-50 hover:opacity-100 transition-all duration-300 grayscale cursor-default"
+        >
+          <img
+            src="/wimbledon-school.webp"
+            alt="Wimbledon School"
+            class="h-10 md:h-14 w-auto opacity-100 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-[#F3F0EB]">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 relative">
+        <h2 class="font-hand text-red text-2xl mb-2 inline-block font-bold">
+          What makes us special?
+        </h2>
+        <h3
+          class="font-sans text-5xl md:text-6xl text-royal mt-2 font-semibold tracking-tight"
+        >
+          OUR CORE PILLARS
+        </h3>
+        <div
+          class="w-24 h-1 bg-gradient-to-r from-transparent via-red to-transparent mx-auto mt-6 opacity-50"
+        >
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div
+          class="group relative h-[600px] overflow-hidden rounded-[2.5rem] shadow-xl cursor-pointer"
+        >
+          <div
+            class="absolute inset-0 bg-royal/20 group-hover:bg-royal/30 z-10 transition-colors duration-500"
+          >
+          </div>
+          <img
+            src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop"
+            alt="Community"
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          />
+
+          <div
+            class="absolute inset-0 z-20 flex flex-col items-center justify-center p-8 text-center"
+          >
+            <h3
+              class="font-sans text-5xl lg:text-6xl text-white drop-shadow-md tracking-wide uppercase mb-2 translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-out font-normal"
+            >
+              COMMUNITY
+            </h3>
+
+            <div
+              class="opacity-0 group-hover:opacity-100 translate-y-8 group-hover:translate-y-0 transition-all duration-500 delay-100"
+            >
+              <div class="w-12 h-1 bg-white mx-auto my-6"></div>
+              <p
+                class="text-white text-lg font-medium leading-relaxed max-w-xs drop-shadow-sm"
+              >
+                Experience belonging and oneness in a global community.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group relative h-[600px] overflow-hidden rounded-[2.5rem] shadow-xl cursor-pointer"
+        >
+          <div
+            class="absolute inset-0 bg-royal/20 group-hover:bg-royal/30 z-10 transition-colors duration-500"
+          >
+          </div>
+          <img
+            src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop"
+            alt="Wellbeing"
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          />
+
+          <div
+            class="absolute inset-0 z-20 flex flex-col items-center justify-center p-8 text-center"
+          >
+            <h3
+              class="font-sans text-5xl lg:text-6xl text-white drop-shadow-md tracking-wide uppercase mb-2 translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-out font-normal"
+            >
+              WELLBEING
+            </h3>
+
+            <div
+              class="opacity-0 group-hover:opacity-100 translate-y-8 group-hover:translate-y-0 transition-all duration-500 delay-100"
+            >
+              <div class="w-12 h-1 bg-white mx-auto my-6"></div>
+              <p
+                class="text-white text-lg font-medium leading-relaxed max-w-xs drop-shadow-sm"
+              >
+                Nourish your mind with English and your soul with wellbeing.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group relative h-[600px] overflow-hidden rounded-[2.5rem] shadow-xl cursor-pointer"
+        >
+          <div
+            class="absolute inset-0 bg-royal/20 group-hover:bg-royal/30 z-10 transition-colors duration-500"
+          >
+          </div>
+          <img
+            src="https://images.pexels.com/photos/2422588/pexels-photo-2422588.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop"
+            alt="Experiences"
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          />
+
+          <div
+            class="absolute inset-0 z-20 flex flex-col items-center justify-center p-8 text-center"
+          >
+            <h3
+              class="font-sans text-5xl lg:text-6xl text-white drop-shadow-md tracking-wide uppercase mb-2 translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-out font-normal"
+            >
+              EXPERIENCES
+            </h3>
+
+            <div
+              class="opacity-0 group-hover:opacity-100 translate-y-8 group-hover:translate-y-0 transition-all duration-500 delay-100"
+            >
+              <div class="w-12 h-1 bg-white mx-auto my-6"></div>
+              <p
+                class="text-white text-lg font-medium leading-relaxed max-w-xs drop-shadow-sm"
+              >
+                Live the city, not just the classroom. Memories made together.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-lightBlue">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-script text-red text-lg mb-4">
+          Real stories, real connections
+        </h2>
+        <h3 class="font-sans font-medium text-4xl md:text-5xl text-royal mb-6">
+          From strangers to family
+        </h3>
+        <p class="text-xl text-royal/70 max-w-3xl mx-auto">
+          Discover how international students have found their home, friends,
+          and confidence through our London English learning community.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+        >
+          <img
+            src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+            alt="Maria from Brazil"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-6">
+            <h4 class="font-sans text-xl text-royal mb-3">Maria from Brazil</h4>
+            <p class="text-royal/70 mb-4">
+              "I was so scared when I arrived in London. Within two weeks of
+              joining, I had my first English conversation over coffee and made
+              three lifelong friends."
+            </p>
+            <a href="/stories" class="text-red font-medium hover:underline"
+              >Read Maria's journey →</a
+            >
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+        >
+          <img
+            src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+            alt="Ahmed from Egypt"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-6">
+            <h4 class="font-sans text-xl text-royal mb-3">Ahmed from Egypt</h4>
+            <p class="text-royal/70 mb-4">
+              "The buddy program changed everything. My London buddy didn't just
+              help me with English – he showed me his London and now it's my
+              London too."
+            </p>
+            <a href="/stories" class="text-red font-medium hover:underline"
+              >Read Ahmed's journey →</a
+            >
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+        >
+          <img
+            src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+            alt="Yuki from Japan"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-6">
+            <h4 class="font-sans text-xl text-royal mb-3">Yuki from Japan</h4>
+            <p class="text-royal/70 mb-4">
+              "I thought learning English was just about grammar. Here I
+              discovered it's about finding your voice and your tribe. Both
+              happened faster than I imagined."
+            </p>
+            <a href="/stories" class="text-red font-medium hover:underline"
+              >Read Yuki's journey →</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a
+          href="/stories"
+          class="bg-red text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-darkRed transition-all duration-300"
+        >
+          Read More Stories
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-script text-red text-lg mb-4">Need to find a course?</h2>
+      <h3 class="font-sans font-medium text-4xl md:text-5xl text-royal mb-8">
+        We've got you covered
+      </h3>
+
+      <div class="bg-lightBlue rounded-2xl p-8 shadow-lg">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <select
+            class="px-4 py-3 rounded-xl border border-lightBlue bg-white text-royal focus:outline-none focus:ring-2 focus:ring-red"
+          >
+            <option>Course Type</option>
+            <option>General English</option>
+            <option>Business English</option>
+            <option>Exam Preparation</option>
+            <option>Specialty Courses</option>
+            <option>Work & Study</option>
+            <option>Private Lessons</option>
+          </select>
+
+          <select
+            class="px-4 py-3 rounded-xl border border-lightBlue bg-white text-royal focus:outline-none focus:ring-2 focus:ring-red"
+          >
+            <option>Number of Weeks</option>
+            <option>2 weeks</option>
+            <option>3 weeks</option>
+            <option>4 weeks</option>
+            <option>5 weeks</option>
+            <option>6 weeks</option>
+            <option>7 weeks</option>
+            <option>8 weeks</option>
+            <option>9 weeks</option>
+            <option>10 weeks</option>
+            <option>11 weeks</option>
+            <option>12 weeks</option>
+          </select>
+
+          <select
+            class="px-4 py-3 rounded-xl border border-lightBlue bg-white text-royal focus:outline-none focus:ring-2 focus:ring-red"
+          >
+            <option>Budget</option>
+            <option>Under £100/week</option>
+            <option>£100-200/week</option>
+            <option>£200-300/week</option>
+            <option>£300+/week</option>
+          </select>
+        </div>
+
+        <a
+          href="/courses"
+          class="bg-red text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-darkRed transition-all duration-300 inline-block"
+        >
+          Find Perfect Courses
+        </a>
+
+        <p class="text-royal/60 mt-4 text-sm">
+          Don't worry about choosing alone – our community will help you find
+          the perfect fit
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-royal text-white relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop"
+        alt="London community gathering"
+        class="w-full h-full object-cover opacity-30"
+      />
+      <div class="absolute inset-0 bg-royal/70"></div>
+    </div>
+
+    <div
+      class="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8"
+    >
+      <h2 class="font-sans text-4xl md:text-6xl mb-6">
+        Ready to start your <span class="font-sans font-medium text-red"
+          >London story</span
+        >?
+      </h2>
+      <p class="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+        Join thousands of international students who've discovered that the best
+        English learning happens when you're surrounded by people who care about
+        your success.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="bg-red text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-red transition-all duration-300"
+        >
+          Join Our Community
+        </a>
+        <a
+          href="/events"
+          class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-royal transition-all duration-300"
+        >
+          Browse Events
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Custom animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+  }
+</style>
