@@ -13,30 +13,98 @@ export function getStaticPaths() {
 
 const { school } = Astro.props;
 
-// --- 1. LÓGICA DE GALERÍA ESPECÍFICA ---
+// --- 1. LÓGICA DE GALERÍA ESPECÍFICA (SIN ALTERAR) ---
 let galleryImages = school.gallery || [];
 
-// Si la escuela es Frances King, forzamos estas imágenes específicas
 if (school.id === "frances-king") {
   galleryImages = [
-    school.image, // La principal
+    school.image,
     "/schools-images/francesking-img2.jpg",
     "/schools-images/francesking-img3.png",
     "/schools-images/francesking-img4.jpg",
     "/schools-images/francesking-img5.jpg",
   ];
-} else if (galleryImages.length === 0) {
-  // Imágenes de relleno para las demás escuelas si no tienen galería en la DB
+} else if (school.id === "burlington-school") {
   galleryImages = [
     school.image,
-    "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "https://images.pexels.com/photos/5940721/pexels-photo-5940721.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "/schools-images/burlington-img2.webp",
+    "/schools-images/burlington-img3.jpeg",
+    "/schools-images/burlington-img4.jpeg",
+    "/schools-images/burlington-img5.jpg",
+  ];
+} else if (school.id === "london-school-of-english") {
+  galleryImages = [
+    school.image,
+    "/schools-images/londonschool-img2.jpg",
+    "/schools-images/londonschool-img3.png",
+    "/schools-images/burlington-img4.jpeg",
+    "/schools-images/burlington-img5.jpg",
+  ];
+} else if (school.id === "malvern-house") {
+  galleryImages = [
+    school.image,
+    "/schools-images/malvernhouse-img2.jpg",
+    "/schools-images/malvernhouse-img3.jpg",
+    "/schools-images/malvernhouse-img4.jpg",
+    "/schools-images/malvernhouse-img5.jpg",
+  ];
+} else if (school.id === "skola-english") {
+  galleryImages = [
+    school.image,
+    "/schools-images/skola-img2.webp",
+    "/schools-images/skola-img3.jpg",
+    "/schools-images/skola-img4.jpg",
+    "/schools-images/skola-img5.jpg",
+  ];
+} else if (school.id === "speak-up-london") {
+  galleryImages = [
+    school.image,
+    "/schools-images/speakup-img2.webp",
+    "/schools-images/speakup-img3.webp",
+    "/schools-images/speakup-img4.webp",
+    "/schools-images/speakup-img5.webp",
+  ];
+} else if (school.id === "stafford-house") {
+  galleryImages = [
+    school.image,
+    "/schools-images/stafford-img2.webp",
+    "/schools-images/stafford-img3.webp",
+    "/schools-images/stafford-img4.jpg",
+    "/schools-images/stafford-img5.jpg",
+  ];
+} else if (school.id === "st-giles-international") {
+  galleryImages = [
+    school.image,
+    "/schools-images/stgiles-img2.webp",
+    "/schools-images/stgiles-img3.webp",
+    "/schools-images/stgiles-img4.webp",
+    "/schools-images/stgiles-img5.webp",
+  ];
+} else if (school.id === "uk-english") {
+  galleryImages = [
+    school.image,
+    "/schools-images/ukenglish-img2.webp",
+    "/schools-images/ukenglish-img3.webp",
+    "/schools-images/ukenglish-img4.webp",
+    "/schools-images/ukenglish-img5.jpg",
+  ];
+} else if (school.id === "uk-language-courses") {
+  galleryImages = [
+    school.image,
+    "/schools-images/uklc-img2.jpg",
+    "/schools-images/uklc-img3.jpg",
+    "/schools-images/uklc-img4.jpg",
+  ];
+} else if (school.id === "wimbledon-school-of-english") {
+  galleryImages = [
+    school.image,
+    "/schools-images/wimbledon-img2.jpg",
+    "/schools-images/wimbledon-img3.jpg",
+    "/schools-images/wimbledon-img4.jpg",
   ];
 }
 
-// --- 2. DATOS DE RESEÑAS ---
+// --- 2. DATOS DE RESEÑAS (SIN ALTERAR) ---
 const reviews = [
   {
     name: "Sarah M.",
@@ -71,23 +139,51 @@ const reviews = [
 >
   <Header />
 
-  <div class="relative h-[50vh] min-h-[400px] w-full overflow-hidden font-sans">
+  <div class="relative h-[60vh] min-h-[480px] w-full overflow-hidden font-sans">
     <div class="absolute inset-0 bg-charcoal/40 z-10"></div>
     <img
       src={school.image}
       alt={school.name}
       class="w-full h-full object-cover"
     />
+
     <div
-      class="absolute inset-0 z-20 flex flex-col justify-end pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+      class="absolute inset-0 z-20 flex flex-col pt-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
     >
+      <div class="flex justify-start">
+        <a
+          href="/courses/"
+          class="inline-flex items-center px-8 py-4 text-sm font-black text-charcoal bg-white border-2 border-beige rounded-2xl hover:bg-earth hover:border-earth transition-all duration-300 shadow-2xl group uppercase tracking-widest"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-3 transform group-hover:-translate-x-2 transition-transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Back to Schools
+        </a>
+      </div>
+
       <div
-        class="bg-white/95 backdrop-blur-md p-6 md:p-8 rounded-3xl max-w-4xl border border-white/50 shadow-2xl"
+        class="mt-4 bg-white/95 backdrop-blur-md p-6 md:p-8 rounded-[2.5rem] max-w-4xl border border-white/50 shadow-2xl"
       >
         <div
           class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4"
         >
           <div>
+            <span
+              class="block uppercase tracking-[0.2em] text-xs md:text-sm font-black text-earth mb-3"
+            >
+              English School in London
+            </span>
             <h1
               class="font-sans font-bold text-3xl md:text-5xl text-charcoal mb-2"
             >
@@ -142,8 +238,8 @@ const reviews = [
     </div>
   </div>
 
-  <section class="py-16 bg-white font-sans">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="pt-4 pb-16 bg-white font-sans">
+    <div class="max-w-7xl pt-4 mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <div class="lg:col-span-2 space-y-12">
           <div id="about">
@@ -206,7 +302,6 @@ const reviews = [
               <h3 class="font-sans font-bold text-xl text-charcoal mb-4">
                 Photo Gallery
               </h3>
-
               <button
                 id="slide-left"
                 class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-charcoal p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -223,7 +318,6 @@ const reviews = [
                     d="M15 19l-7-7 7-7"></path></svg
                 >
               </button>
-
               <div
                 id="gallery-slider"
                 class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 scrollbar-hide"
@@ -241,7 +335,6 @@ const reviews = [
                   ))
                 }
               </div>
-
               <button
                 id="slide-right"
                 class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-charcoal p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -315,8 +408,10 @@ const reviews = [
                         <div>
                           <h4 class="font-bold text-charcoal">{review.name}</h4>
                           <div class="flex items-center text-xs text-charcoal/60 gap-2">
-                            <span>{review.country}</span>
-                            <span>• {review.date}</span>
+                            <>
+                              <span>{review.country}</span>
+                              <span>• {review.date}</span>
+                            </>
                           </div>
                         </div>
                       </div>
@@ -324,26 +419,12 @@ const reviews = [
                         {"★".repeat(review.rating)}
                       </div>
                     </div>
-                    <p class="text-charcoal/75 leading-relaxed text-sm md:text-base">
+                    <p class="text-charcoal/75 leading-relaxed text-sm md:text-base italic">
                       "{review.text}"
                     </p>
                   </div>
                 ))
               }
-            </div>
-            <div
-              class="mt-10 bg-cream/30 p-8 rounded-3xl border border-beige text-center"
-            >
-              <h4 class="font-bold text-xl text-charcoal mb-2">
-                Have you studied here?
-              </h4>
-              <p class="text-charcoal/60 mb-6 text-sm">
-                Share your experience and help other students choose their path.
-              </p>
-              <button
-                class="bg-white border-2 border-beige text-charcoal px-8 py-3 rounded-full font-bold hover:border-earth hover:text-earth transition-all shadow-sm"
-                >Write a Review</button
-              >
             </div>
           </div>
         </div>
@@ -417,14 +498,11 @@ const reviews = [
                     >£ --</span
                   >
                 </div>
-                <div class="text-xs text-charcoal/50 text-right mb-1">
+                <div class="text-xs text-charcoal/50 text-right mb-6">
                   <span id="fees-breakdown"
                     >Includes Reg Fee: £{school.fees?.registration || 0}</span
                   >
                 </div>
-                <p class="text-xs text-charcoal/40 text-right mb-6">
-                  *Excluding flights & insurance
-                </p>
               </div>
               <a
                 href={school.website}
@@ -466,25 +544,20 @@ const reviews = [
         const coursePricePerWeek = parseFloat(courseSelect.value) || 0;
         const weeks = parseInt(durationSelect.value) || 1;
         const accomPricePerWeek = parseFloat(accomSelect.value) || 0;
-
-        let total = coursePricePerWeek * weeks;
-        total += regFee;
+        let total = coursePricePerWeek * weeks + regFee;
 
         if (accomPricePerWeek > 0) {
-          total += accomPricePerWeek * weeks;
-          total += accomFee;
+          total += accomPricePerWeek * weeks + accomFee;
           feesDisplay.innerText = `Incl. Reg £${regFee} + Accom Fee £${accomFee}`;
         } else {
           feesDisplay.innerText = `Incl. Reg Fee £${regFee}`;
         }
-
-        totalDisplay.innerText = `£${total.toLocaleString("en-GB", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+        totalDisplay.innerText = `£${total.toLocaleString("en-GB")}`;
       }
 
-      if (courseSelect) courseSelect.addEventListener("change", calculateTotal);
-      if (durationSelect)
-        durationSelect.addEventListener("change", calculateTotal);
-      if (accomSelect) accomSelect.addEventListener("change", calculateTotal);
+      courseSelect?.addEventListener("change", calculateTotal);
+      durationSelect?.addEventListener("change", calculateTotal);
+      accomSelect?.addEventListener("change", calculateTotal);
       calculateTotal();
     }
 
@@ -494,13 +567,12 @@ const reviews = [
     const rightBtn = document.getElementById("slide-right");
 
     if (slider && leftBtn && rightBtn) {
-      leftBtn.addEventListener("click", () => {
-        slider.scrollBy({ left: -300, behavior: "smooth" });
-      });
-
-      rightBtn.addEventListener("click", () => {
-        slider.scrollBy({ left: 300, behavior: "smooth" });
-      });
+      leftBtn.addEventListener("click", () =>
+        slider.scrollBy({ left: -300, behavior: "smooth" })
+      );
+      rightBtn.addEventListener("click", () =>
+        slider.scrollBy({ left: 300, behavior: "smooth" })
+      );
     }
   });
 </script>

@@ -50,8 +50,7 @@ export const schools = [
     id: "burlington-school",
     name: "Burlington School",
     website: "http://burlingtonschool.co.uk/",
-    image:
-      "https://images.pexels.com/photos/1130683/pexels-photo-1130683.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/schools-images/burlington-img1.tif",
     rating: 4.9,
     reviews: 15,
     location: "Balham, South London, UK, SW12 9HW",
@@ -105,8 +104,7 @@ export const schools = [
     id: "london-school-of-english",
     name: "The London School of English",
     website: "http://www.londonschool.com/",
-    image:
-      "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/schools-images/londonschool-img1.jpg",
     rating: 4.9,
     reviews: 42,
     location: "Holland Park Gardens, London",
@@ -147,8 +145,7 @@ export const schools = [
     id: "malvern-house",
     name: "Malvern House",
     website: "http://www.malvernhouse.com/",
-    image:
-      "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/schools-images/malvernhouse-img1.jpg",
     rating: 4.5,
     reviews: 19,
     location: "King's Cross, Central London",
@@ -190,8 +187,7 @@ export const schools = [
     id: "skola-english",
     name: "SKOLA English",
     website: "http://www.skola.co.uk/",
-    image:
-      "https://images.pexels.com/photos/8423046/pexels-photo-8423046.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/schools-images/skola-img1.webp",
     rating: 4.8,
     reviews: 12,
     location: "Regent's Park, London",
@@ -230,8 +226,7 @@ export const schools = [
     id: "speak-up-london",
     name: "Speak Up London",
     website: "http://www.speakuplondon.com/",
-    image:
-      "https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/schools-images/speakup-img1.jpg",
     rating: 4.7,
     reviews: 156,
     location: "Oxford Street, London",
@@ -268,8 +263,7 @@ export const schools = [
     id: "stafford-house",
     name: "Stafford House",
     website: "http://www.staffordhouse.com/",
-    image:
-      "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/schools-images/stafford-img1.webp",
     rating: 4.6,
     reviews: 33,
     location: "Bloomsbury, Central London",
@@ -310,8 +304,7 @@ export const schools = [
     id: "st-giles-international",
     name: "St Giles International",
     website: "http://www.stgiles-international.com/",
-    image:
-      "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/schools-images/stgiles-img1.webp",
     rating: 4.8,
     reviews: 64,
     location: "Highgate & Central London",
@@ -352,8 +345,7 @@ export const schools = [
     id: "uk-english",
     name: "UK English",
     website: "http://www.ukenglish.org.uk/",
-    image:
-      "https://images.pexels.com/photos/267669/pexels-photo-267669.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/schools-images/ukenglish-img1.png",
     rating: 4.4,
     reviews: 9,
     location: "Various Locations",
@@ -384,8 +376,7 @@ export const schools = [
     id: "uk-language-courses",
     name: "UK Language Courses (UKLC)",
     website: "http://www.uklanguagecourses.com/",
-    image:
-      "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/schools-images/uklc-img1.jpg",
     rating: 4.7,
     reviews: 21,
     location: "Greater London & UK",
@@ -423,8 +414,7 @@ export const schools = [
     id: "wimbledon-school-of-english",
     name: "Wimbledon School of English",
     website: "http://www.wimbledon-school.ac.uk/",
-    image:
-      "https://images.pexels.com/photos/208321/pexels-photo-208321.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/schools-images/wimbledon-img1.png",
     rating: 5.0,
     reviews: 89,
     location: "Wimbledon, South London",
